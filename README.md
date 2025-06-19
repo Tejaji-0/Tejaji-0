@@ -11,7 +11,7 @@
 ```javascript
 const tejaji = {
     pronouns: "He" | "Him",
-    code: ["Python", "Java", "HTML","CSS"],
+    code: ["Python", "Java", "HTML","CSS","JS"],
     askMeAbout: ["chatbots", "tech", "app dev", "gaming"],
     currentFocus: "No Focus point at this time",
     funFact: "There are two ways to write error-free programs; only the third one works"
