@@ -59,12 +59,13 @@ const tejaji = {
 
 ---
 
-## 📊 GitHub Stats
+## 📊 My GitHub Highlights
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Tejaji-0&show_icons=true&theme=radical" alt="Tejaji-0 GitHub Stats" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=Tejaji-0&theme=radical" alt="Tejaji-0 GitHub Streak" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tejaji-0&layout=compact&theme=radical" alt="Tejaji-0 Top Languages" />
+</p>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tejaji-0&layout=compact&theme=radical&hide=html,css" alt="Tejaji-0 Top Languages" />
 </p>
 
 ---
