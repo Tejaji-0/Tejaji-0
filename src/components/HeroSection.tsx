@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedText from "@/components/animations/AnimatedText";
+import FloatingBackground from "@/components/animations/FloatingBackground";
+import ParticleSystem from "@/components/animations/ParticleSystem";
 
 interface HeroSectionProps {
   name?: string;
@@ -20,55 +24,115 @@ const HeroSection = ({
 }: HeroSectionProps) => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
-      </div>
+      {/* Animated Background */}
+      <FloatingBackground count={8} />
+      <ParticleSystem count={30} />
       
       <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="animate-fade-in">
-          <p className="text-muted-foreground mb-4 text-lg font-mono">
-            &lt; I love connecting with different people /&gt;
-          </p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.p 
+            className="text-muted-foreground mb-4 text-lg font-mono"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            &lt; Hello World /&gt;
+          </motion.p>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-gradient">{name}</span>
-          </h1>
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <motion.span 
+              className="text-gradient"
+              animate={{ 
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            >
+              {name}
+            </motion.span>
+          </motion.h1>
           
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground/90">
+          <AnimatedText 
+            className="text-2xl md:text-3xl font-semibold mb-6 text-foreground/90"
+            delay={0.8}
+          >
             {title}
-          </h2>
+          </AnimatedText>
           
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          <AnimatedText 
+            className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+            delay={1.2}
+          >
             {description}
-          </p>
+          </AnimatedText>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" className="glow-primary bg-primary text-primary-foreground hover:bg-primary/90">
-              <Mail className="mr-2 h-5 w-5" />
-              Get In Touch
-            </Button>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.6 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button size="lg" className="glow-primary bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                <a href="#contact" className="inline-flex items-center">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Get In Touch
+                </a>
+              </Button>
+            </motion.div>
             
             <div className="flex gap-4">
-              <Button variant="outline" size="lg" asChild>
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-5 w-5" />
-                </a>
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 360 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Button variant="outline" size="lg" asChild>
+                  <a href={githubUrl} target="_blank" rel="noopener noreferrer" title="GitHub Profile">
+                    <Github className="h-5 w-5" />
+                  </a>
+                </Button>
+              </motion.div>
               
-              <Button variant="outline" size="lg" asChild>
-                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: -360 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Button variant="outline" size="lg" asChild>
+                  <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </Button>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="animate-bounce">
+          <motion.div 
+            className="inline-block"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             <ArrowDown className="h-8 w-8 text-muted-foreground mx-auto" />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

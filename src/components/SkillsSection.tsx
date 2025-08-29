@@ -1,5 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import AnimatedSection from "@/components/animations/AnimatedSection";
+import AnimatedCard from "@/components/animations/AnimatedCard";
 
 interface Skill {
   name: string;
@@ -93,44 +96,63 @@ const SkillsSection = ({ skills = defaultSkills }: SkillsSectionProps) => {
   return (
     <section className="py-20 px-6">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-gradient">Technical Skills</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <Card 
-              key={category} 
-              className="card-gradient border-border/50 hover:border-primary/50 transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+            <AnimatedSection
+              key={category}
+              delay={index * 0.1}
+              direction="up"
             >
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-foreground">
-                  {category}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills
-                    .filter(skill => skill.category === category)
-                    .map((skill, skillIndex) => (
-                      <Badge 
-                        key={skill.name} 
-                        variant="secondary" 
-                        className={`${getLevelColor(skill.level)} transition-all duration-300 hover:scale-105`}
-                      >
-                        {skill.name}
-                      </Badge>
-                    ))
-                  }
-                </div>
-              </CardContent>
-            </Card>
+              <AnimatedCard className="h-full">
+                <Card className="card-gradient border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-semibold text-foreground">
+                      {category}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {skills
+                        .filter(skill => skill.category === category)
+                        .map((skill, skillIndex) => (
+                          <motion.div
+                            key={skill.name}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ 
+                              duration: 0.3, 
+                              delay: index * 0.1 + skillIndex * 0.05 
+                            }}
+                            whileHover={{ 
+                              scale: 1.1,
+                              rotate: [0, -5, 5, 0],
+                              transition: { duration: 0.3 }
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Badge 
+                              variant="secondary" 
+                              className={`${getLevelColor(skill.level)} transition-all duration-300 cursor-pointer`}
+                            >
+                              {skill.name}
+                            </Badge>
+                          </motion.div>
+                        ))
+                      }
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+            </AnimatedSection>
           ))}
         </div>
       </div>

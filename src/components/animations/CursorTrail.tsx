@@ -38,7 +38,8 @@ const CursorTrail = () => {
                               target.tagName === 'DIV' && target.textContent?.trim() ||
                               target.tagName === 'EM' ||
                               target.tagName === 'STRONG' ||
-                              target.classList.contains('text-'));
+                              target.classList.contains('text-') ||
+                              window.getComputedStyle(target).cursor === 'text');
       setIsOverText(isTextElement && !isInteractive);
     };
 
@@ -59,8 +60,8 @@ const CursorTrail = () => {
     <>
       {/* Main cursor dot */}
       <motion.div
-        className={`fixed bg-primary rounded-full pointer-events-none z-50 ${
-          isOverText ? 'mix-blend-difference opacity-80' : ''
+        className={`fixed rounded-full pointer-events-none z-50 ${
+          isOverText ? 'bg-primary/60 mix-blend-difference' : 'bg-primary'
         }`}
         animate={{
           x: mousePosition.x - (isHovering ? 8 : 6),
@@ -77,15 +78,13 @@ const CursorTrail = () => {
       
       {/* Cursor ring */}
       <motion.div
-        className={`fixed border-2 border-primary/50 rounded-full pointer-events-none z-50 ${
-          isOverText ? 'mix-blend-difference' : ''
-        }`}
+        className="fixed border-2 border-primary/50 rounded-full pointer-events-none z-50"
         animate={{
           x: mousePosition.x - (isHovering ? 20 : 16),
           y: mousePosition.y - (isHovering ? 20 : 16),
           width: isHovering ? 40 : 32,
           height: isHovering ? 40 : 32,
-          borderColor: "hsl(217 91% 60% / 0.6)",
+          borderColor: "hsl(217 91% 60% / 0.8)",
         }}
         transition={{
           type: "spring",
