@@ -40,19 +40,19 @@ const defaultSkills: Skill[] = [
   // Databases
   { name: "MongoDB", category: "Database", level: "Advanced" },
   { name: "MySQL", category: "Database", level: "Advanced" },
-  { name: "PostgreSQL", category: "Database", level: "Intermediate" },
+  { name: "PostgreSQL", category: "Database", level: "Expert" },
   { name: "SQLite", category: "Database", level: "Intermediate" },
   
   // AI & Machine Learning
-  { name: "TensorFlow", category: "AI/ML", level: "Advanced" },
-  { name: "PyTorch", category: "AI/ML", level: "Advanced" },
-  { name: "OpenCV", category: "AI/ML", level: "Intermediate" },
+  { name: "TensorFlow", category: "AI/ML", level: "Expert" },
+  { name: "PyTorch", category: "AI/ML", level: "Expert" },
+  { name: "OpenCV", category: "AI/ML", level: "Expert" },
   { name: "scikit-learn", category: "AI/ML", level: "Advanced" },
   { name: "Pandas", category: "AI/ML", level: "Advanced" },
   
   // Mobile Development
   { name: "Flutter", category: "Mobile", level: "Intermediate" },
-  { name: "NativeScript", category: "Mobile", level: "Beginner" },
+  { name: "NativeScript", category: "Mobile", level: "Intermediate" },
   
   // Game Development
   { name: "Unity", category: "Game Dev", level: "Intermediate" },
@@ -63,7 +63,7 @@ const defaultSkills: Skill[] = [
   { name: "Photoshop", category: "Design", level: "Intermediate" },
   { name: "Illustrator", category: "Design", level: "Intermediate" },
   { name: "Adobe XD", category: "Design", level: "Intermediate" },
-  { name: "Blender", category: "Design", level: "Beginner" },
+  { name: "Blender", category: "Design", level: "Expert" },
   
   // DevOps & Tools
   { name: "Git", category: "DevOps", level: "Expert" },
@@ -75,7 +75,8 @@ const defaultSkills: Skill[] = [
   
   // Other Technologies
   { name: "Electron", category: "Desktop", level: "Intermediate" },
-  { name: "Arduino", category: "Hardware", level: "Intermediate" },
+  { name: "Arduino", category: "Hardware", level: "Expert" },
+  { name: "Raspberry Pi", category: "Hardware", level: "Expert" },
   { name: "Selenium", category: "Testing", level: "Intermediate" },
   { name: "MATLAB", category: "Data Science", level: "Intermediate" },
 ];
