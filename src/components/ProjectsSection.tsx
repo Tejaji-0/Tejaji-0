@@ -43,7 +43,7 @@ const defaultProjects: Project[] = [
     title: "Gaming Projects",
     description: "Fun gaming applications and interactive experiences that showcase creative programming and user engagement through game development principles.",
     technologies: ["JavaScript", "Game Development", "Interactive Design", "Animation"],
-    liveUrl: "http://tejaji-0.me/snake.io/"
+    liveUrl: "https://snake-io-three.vercel.app/"
   }
 ];
 
