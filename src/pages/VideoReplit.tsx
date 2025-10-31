@@ -11,13 +11,13 @@ const VideoReplit = () => {
       <div className="w-full max-w-4xl">
         <h1 className="text-3xl font-semibold mb-6 text-center">Video: Replit</h1>
 
-        <div className="relative" style={{ paddingTop: '56.25%' }}>
+        <div className="relative aspect-video">
           <iframe
             title="Replit Video"
             src="https://www.youtube.com/embed/BlKHb8ASSh0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="absolute top-0 left-0 w-full h-full rounded-md shadow-lg"
+            className="absolute inset-0 w-full h-full rounded-md shadow-lg"
           />
         </div>
 

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "redirects": [
+    { "source": "/video", "destination": "/video_replit", "permanent": true },
+    { "source": "/videos", "destination": "/video_replit", "permanent": true },
+    { "source": "/videos_replit", "destination": "/video_replit", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
