@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import VideoReplit from "./pages/VideoReplit";
+import CLIGamePage from "./pages/CLIGamePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/video_replit" element={<VideoReplit />} />
+          <Route path="/games" element={<CLIGamePage />} />
+          <Route path="/cli-game" element={<CLIGamePage />} />
           {/* Redirects to /video_replit */}
           <Route path="/videos_replit" element={<Navigate to="/video_replit" replace />} />
           <Route path="/video" element={<Navigate to="/video_replit" replace />} />

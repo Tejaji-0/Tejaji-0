@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Gamepad2 } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedText from "@/components/animations/AnimatedText";
 import FloatingBackground from "@/components/animations/FloatingBackground";
 import ParticleSystem from "@/components/animations/ParticleSystem";
+import { useNavigate } from "react-router-dom";
 
 interface HeroSectionProps {
   name?: string;
@@ -22,6 +23,8 @@ const HeroSection = ({
   linkedinUrl = "https://www.linkedin.com/in/sri-narayana-tejaji/",
   email = "hello@tejaji.dev"
 }: HeroSectionProps) => {
+  const navigate = useNavigate();
+  
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
       {/* Animated Background */}
@@ -93,6 +96,21 @@ const HeroSection = ({
                   <Mail className="mr-2 h-5 w-5" />
                   Get In Touch
                 </a>
+              </Button>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-green-500/50 text-green-400 hover:bg-green-500/10"
+                onClick={() => navigate("/games")}
+              >
+                <Gamepad2 className="mr-2 h-5 w-5" />
+                Play Games
               </Button>
             </motion.div>
             
