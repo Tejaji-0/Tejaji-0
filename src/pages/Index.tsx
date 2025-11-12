@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
 import ScrollProgress from "@/components/animations/ScrollProgress";
 import CursorTrail from "@/components/animations/CursorTrail";
@@ -20,6 +21,7 @@ const Index = () => {
         <HeroSection />
         <SkillsSection />
         <ProjectsSection />
+        <BlogSection />
         <ContactSection />
       </motion.div>
     </>
