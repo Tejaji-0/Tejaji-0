@@ -3,12 +3,15 @@ import CLIGame from "@/components/CLIGame";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Home } from "lucide-react";
+import CursorTrail from "@/components/animations/CursorTrail";
 
 const CLIGamePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col items-center justify-center p-4">
+    <>
+      <CursorTrail />
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -41,6 +44,7 @@ const CLIGamePage = () => {
         </motion.div>
       </motion.div>
     </div>
+    </>
   );
 };
 

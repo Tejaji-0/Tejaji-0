@@ -8,6 +8,7 @@ import VideoReplit from "./pages/VideoReplit";
 import CLIGamePage from "./pages/CLIGamePage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import AdminBlog from "./pages/AdminBlog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/cli-game" element={<CLIGamePage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/admin/blog" element={<AdminBlog />} />
           {/* Redirects to /video_replit */}
           <Route path="/videos_replit" element={<Navigate to="/video_replit" replace />} />
           <Route path="/video" element={<Navigate to="/video_replit" replace />} />

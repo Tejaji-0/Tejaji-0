@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import CursorTrail from "@/components/animations/CursorTrail";
 
 const VideoReplit = () => {
   return (
-    <motion.div
+    <>
+      <CursorTrail />
+      <motion.div
       className="min-h-screen flex items-center justify-center bg-background p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -26,6 +29,7 @@ const VideoReplit = () => {
         </p>
       </div>
     </motion.div>
+    </>
   );
 };
 
