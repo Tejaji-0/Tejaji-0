@@ -31,6 +31,8 @@ const App = () => (
           <Route path="/videos_replit" element={<Navigate to="/video_replit" replace />} />
           <Route path="/video" element={<Navigate to="/video_replit" replace />} />
           <Route path="/videos" element={<Navigate to="/video_replit" replace />} />
+          {/* Gambitor PDF route */}
+          <Route path="/gambitor" element={<Navigate to="/Gambitor.pdf" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
