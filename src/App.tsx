@@ -11,6 +11,7 @@ import BlogPost from "./pages/BlogPost";
 import AdminBlog from "./pages/AdminBlog";
 import NotFound from "./pages/NotFound";
 import Gambitor from "./pages/Gambitor";
+import CampfireBng from "./pages/CampfireBng";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,8 @@ const App = () => (
           <Route path="/videos" element={<Navigate to="/video_replit" replace />} />
           {/* Gambitor PDF route */}
           <Route path="/gambitor" element={<Gambitor />} />
+          {/* Campfire BNG PDF route */}
+          <Route path="/campfire-bng" element={<CampfireBng />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
