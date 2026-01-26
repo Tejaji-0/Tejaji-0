@@ -15,14 +15,17 @@ import CampfireBng from "./pages/CampfireBng";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
+const App = () => {
+  const isBlogSubdomain = typeof window !== 'undefined' && window.location.hostname === 'blog.tejaji-0.me';
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={isBlogSubdomain ? <Navigate to="/blog" replace /> : <Index />} />
           <Route path="/video_replit" element={<VideoReplit />} />
           <Route path="/games" element={<CLIGamePage />} />
           <Route path="/cli-game" element={<CLIGamePage />} />
@@ -43,6 +46,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

@@ -6,8 +6,6 @@
     { "source": "/videos_replit", "destination": "/video_replit", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/blog", "has": [{ "type": "host", "value": "blog.tejaji-0.me" }] },
-    { "source": "/:path*", "destination": "/blog/:path*", "has": [{ "type": "host", "value": "blog.tejaji-0.me" }] },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
