@@ -3,11 +3,11 @@
   "redirects": [
     { "source": "/video", "destination": "/video_replit", "permanent": true },
     { "source": "/videos", "destination": "/video_replit", "permanent": true },
-    { "source": "/videos_replit", "destination": "/video_replit", "permanent": true },
-    { "source": "/blog", "destination": "https://blog.tejadi-0.me", "statusCode": 301 },
-    { "source": "/blog/:path*", "destination": "https://blog.tejadi-0.me/:path*", "statusCode": 301 }
+    { "source": "/videos_replit", "destination": "/video_replit", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/", "destination": "/blog", "has": [{ "type": "host", "value": "blog.tejaji-0.me" }] },
+    { "source": "/:path*", "destination": "/blog/:path*", "has": [{ "type": "host", "value": "blog.tejaji-0.me" }] },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
