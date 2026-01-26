@@ -16,6 +16,7 @@ const Blog = () => {
   const [loadedStacks, setLoadedStacks] = useState(1); // Start with 1 stack
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement>(null);
+  const isBlogSubdomain = typeof window !== 'undefined' && window.location.hostname === 'blog.tejaji-0.me';
 
   // Get all unique tags
   const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)));
@@ -78,12 +79,21 @@ const Blog = () => {
         {/* Header */}
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-            <Link to="/">
-              <Button variant="ghost" className="gap-2">
-                <Home className="w-4 h-4" />
-                Home
-              </Button>
-            </Link>
+            {isBlogSubdomain ? (
+              <a href="https://tejaji-0.me">
+                <Button variant="ghost" className="gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Button>
+              </a>
+            ) : (
+              <Link to="/">
+                <Button variant="ghost" className="gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Button>
+              </Link>
+            )}
             <h1 className="text-xl font-bold">Blog</h1>
             <div className="w-20" /> {/* Spacer for centering */}
           </div>
