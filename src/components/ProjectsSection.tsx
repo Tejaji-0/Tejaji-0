@@ -28,6 +28,12 @@ const defaultProjects: Project[] = [
     liveUrl: "https://samosagpt.vercel.app/"
   },
   {
+    title: "Campfire Bengaluru",
+    description: "A teen only hackton for teens by teens",
+    technologies: ["React", "JavaScript", "HTML5", "CSS3", "Responsive Design"],  
+    liveUrl: "https://campfire.hackclub.com/bengaluru"
+  },
+  {
     title: "Devlancr",
     description: "Connect with fellow developers who share your passion for code. Find collaborators, mentors, and friends in the most innovative way possible.",
     technologies: ["React", "JavaScript", "HTML5", "CSS3", "Responsive Design"],
